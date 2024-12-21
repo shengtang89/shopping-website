@@ -4,68 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .product {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
-            width: 250px;
-            text-align: center;
-        }
-        .product img {
-            width: 250px;
-            height: 250px;
-        }
-        #productForm {
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <body>
-   <!-- 导航栏 -->
-<nav style="background-color: #333; padding: 10px; text-align: center;">
-    <a href="#home" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
-    <a href="#upload" style="color: white; margin: 0 15px; text-decoration: none;">Upload Product</a>
-    <a href="#product-list" style="color: white; margin: 0 15px; text-decoration: none;">Product List</a>
-    <a href="#about-us" style="color: white; margin: 0 15px; text-decoration: none;">About Us</a>
-    <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
-</nav>
- <h1>Welcome to My Shopping Website</h1>
+    <!-- 导航栏 -->
+    <nav style="background-color: #333; padding: 10px; text-align: center;">
+        <a href="#home" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
+        <a href="#upload" style="color: white; margin: 0 15px; text-decoration: none;">Upload Product</a>
+        <a href="#product-list" style="color: white; margin: 0 15px; text-decoration: none;">Product List</a>
+        <a href="#about-us" style="color: white; margin: 0 15px; text-decoration: none;">About Us</a>
+        <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
+    </nav>
 
-    <h2>Upload a Product</h2>
-    <form id="productForm">
-        <label for="productName">Product Name:</label><br>
-        <input type="text" id="productName" required><br><br>
+    <!-- 上传产品 -->
+    <section id="upload" style="padding: 50px 20px;">
+        <h2>Upload a Product</h2>
+        <form id="productForm">
+            <label for="productName">Product Name:</label><br>
+            <input type="text" id="productName" required><br><br>
 
-        <label for="productPrice">Price ($):</label><br>
-        <input type="number" id="productPrice" required><br><br>
+            <label for="productPrice">Price ($):</label><br>
+            <input type="number" id="productPrice" required><br><br>
 
-        <label for="productImage">Product Image URL:</label><br>
-        <input type="text" id="productImage" placeholder="Paste image URL here" required><br><br>
+            <label for="productImage">Product Image URL:</label><br>
+            <input type="text" id="productImage" placeholder="Paste image URL here" required><br><br>
 
-        <button type="submit">Add Product</button>
-    </form>
+            <button type="submit">Add Product</button>
+        </form>
+    </section>
 
-    <h2>Product List</h2>
-    <div id="productList">
-        <!-- Existing products will go here -->
-    </div>
+    <!-- 产品列表 -->
+    <section id="product-list" style="padding: 50px 20px;">
+        <h2>Product List</h2>
+        <div id="productList">
+            <!-- 产品列表将在此处显示 -->
+        </div>
+    </section>
 
+    <!-- JavaScript 部分 -->
     <script>
-        const productForm = document.getElementById('productForm');
-        const productList = document.getElementById('productList');
+        // JavaScript logic for product uploading
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
 
-        productForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Get user input
             const name = document.getElementById('productName').value;
             const price = document.getElementById('productPrice').value;
             const imageUrl = document.getElementById('productImage').value;
+
+            const productList = document.getElementById('productList');
 
             // Create product element
             const productDiv = document.createElement('div');
@@ -86,3 +71,4 @@
     </script>
 </body>
 </html>
+
